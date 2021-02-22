@@ -34,7 +34,7 @@ public class SpawnManager : MonoBehaviour
 
         while (!_stopSpawning)
         {
-            Vector3 positionToSpawn = new Vector3(Random.Range(-9f, -9f), 7f, 0);
+            Vector3 positionToSpawn = new Vector3(Random.Range(-9f, 9f), 7f, 0);
             GameObject prefab = Instantiate(_enemyPrefab,positionToSpawn, Quaternion.identity);
             prefab.transform.SetParent(_enemyContainer.transform);
             yield return new WaitForSeconds(time);
@@ -45,8 +45,7 @@ public class SpawnManager : MonoBehaviour
     {
         while (!_stopSpawning)
         {           
-            Vector3 positionToSpawn = new Vector3(Random.Range(-8f, -8f), 7f, 0);
-            Debug.Log(positionToSpawn);
+            Vector3 positionToSpawn = new Vector3(Random.Range(-8f, 8f), 7f, 0);
             Instantiate(_tripleShot, positionToSpawn, Quaternion.identity);
             yield return new WaitForSeconds(Random.Range(3, 8));
            
