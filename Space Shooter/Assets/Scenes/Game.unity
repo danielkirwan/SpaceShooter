@@ -277,6 +277,8 @@ MonoBehaviour:
   _enemyContainer: {fileID: 88640013}
   _tripleShot: {fileID: 4714512200848441194, guid: 28669bd9fdeb228409d0157d1c3db24a,
     type: 3}
+  _speedUpPrefab: {fileID: 656649478910374393, guid: 28897f9435c82854d8314dd4a1fed67c,
+    type: 3}
 --- !u!4 &340054790
 Transform:
   m_ObjectHideFlags: 0

@@ -5,7 +5,9 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     [SerializeField]
-    private float _speed = 4f;
+    private float _speed = 3f;
+    [SerializeField]
+    private int powerUpID;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,9 +31,33 @@ public class PowerUp : MonoBehaviour
             Player player = collision.transform.GetComponent<Player>();
             if(player != null)
             {
-                player.ActivateTripleShot();
-                Destroy(this.gameObject);
+                //if(powerUpID == 0)
+                //{
+                //    player.ActivateTripleShot();
+                    
+                //}else if(powerUpID == 1)
+                //{
+                //    player.ActivateSpeedIncrease();
+                //}else if (powerUpID == 2)
+                //{
+                //    //shield stuff TODO
+                //}
+
+                switch (powerUpID)
+                {
+                case 0 : 
+                    player.ActivateTripleShot();
+                    break;
+                case 1:
+                    player.ActivateSpeedIncrease();
+                    break;
+                case 2:
+                    Debug.Log("Collected shields");
+                    break;
+                }
+                
             }
+            Destroy(this.gameObject);
         }
     }
 

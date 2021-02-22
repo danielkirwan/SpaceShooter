@@ -4,22 +4,30 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float _speed = 3.5f;
+    [SerializeField]
+    private float _speed = 5f;
+    private float _speedMultiplier = 2f;
     [Header("Lasers")]
     [SerializeField]
     private GameObject _laser;
     [SerializeField]
     private GameObject _tripleShot;
 
+    [Header("FireRates")]
     [SerializeField]
     private float _fireRate = 0.3f;
     private float _canFire = -1f;
+
+    [Header("Lives")]
     [SerializeField]
     private int _lives = 3;
     SpawnManager spawnManager;
 
+    [Header("Bools")]
     [SerializeField]
     bool _IsTripleShotActive = false;
+    [SerializeField]
+    bool _IsSpeedBoostActive = false;
     
     // Start is called before the first frame update
     void Start()
@@ -65,6 +73,20 @@ public class Player : MonoBehaviour
         _IsTripleShotActive = false;
     }
 
+    public void ActivateSpeedIncrease()
+    {
+        _IsSpeedBoostActive = true;
+        _speed *= _speedMultiplier;
+        StartCoroutine(DecreaseSpeed());
+    }
+
+    private IEnumerator DecreaseSpeed()
+    {
+        yield return new WaitForSeconds(5);
+        _IsSpeedBoostActive = false;
+        _speed /= _speedMultiplier;
+    }
+
 
     void Shoot()
     {
@@ -85,7 +107,9 @@ public class Player : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        transform.Translate(new Vector3(horizontalInput, verticalInput, 0) * _speed * Time.deltaTime);
+
+        Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
+        transform.Translate(direction * _speed * Time.deltaTime);
 
         //limit movement between two positions
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.8f, 0f), 0);
