@@ -56,7 +56,6 @@ public class Player : MonoBehaviour
     public void ActivateTripleShot()
     {
         _IsTripleShotActive = true;
-        Debug.Log("Activating triple shot");
         StartCoroutine(DeactivateTripleShot());
     }
 
@@ -64,8 +63,6 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         _IsTripleShotActive = false;
-        Debug.Log("Deactivating triple shot");
-
     }
 
 

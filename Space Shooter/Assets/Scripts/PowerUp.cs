@@ -30,7 +30,6 @@ public class PowerUp : MonoBehaviour
             if(player != null)
             {
                 player.ActivateTripleShot();
-                Debug.Log("Tripleshot pickup");
                 Destroy(this.gameObject);
             }
         }
