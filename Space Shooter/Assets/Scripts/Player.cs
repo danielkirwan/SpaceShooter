@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     private GameObject _laser;
     [SerializeField]
     private GameObject _tripleShot;
+    [SerializeField]
+    private GameObject _shield;
 
     [Header("FireRates")]
     [SerializeField]
@@ -28,6 +30,8 @@ public class Player : MonoBehaviour
     bool _IsTripleShotActive = false;
     [SerializeField]
     bool _IsSpeedBoostActive = false;
+    [SerializeField]
+    private bool _IsShieldActive = false;
     
     // Start is called before the first frame update
     void Start()
@@ -48,6 +52,12 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
+        if (_IsShieldActive)
+        {
+            StartCoroutine(DeactivateShield());
+            return;
+        }
+
         _lives--;
 
         if (_lives < 1)
@@ -60,6 +70,20 @@ public class Player : MonoBehaviour
 
         }
     }
+
+    public void ActivateShield()
+    {
+        _IsShieldActive = true;
+        _shield.SetActive(true);
+    }
+
+    private IEnumerator DeactivateShield()
+    {
+        yield return new WaitForSeconds(1);
+        _IsShieldActive = false;
+        _shield.SetActive(false);
+    }
+
 
     public void ActivateTripleShot()
     {

@@ -31,18 +31,6 @@ public class PowerUp : MonoBehaviour
             Player player = collision.transform.GetComponent<Player>();
             if(player != null)
             {
-                //if(powerUpID == 0)
-                //{
-                //    player.ActivateTripleShot();
-                    
-                //}else if(powerUpID == 1)
-                //{
-                //    player.ActivateSpeedIncrease();
-                //}else if (powerUpID == 2)
-                //{
-                //    //shield stuff TODO
-                //}
-
                 switch (powerUpID)
                 {
                 case 0 : 
@@ -52,7 +40,7 @@ public class PowerUp : MonoBehaviour
                     player.ActivateSpeedIncrease();
                     break;
                 case 2:
-                    Debug.Log("Collected shields");
+                        player.ActivateShield();
                     break;
                 }
                 
