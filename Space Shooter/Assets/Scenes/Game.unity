@@ -461,35 +461,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4044373087206465919, guid: 3019186fa2e912b4dae1378d08187195,
+    - target: {fileID: 789452834986877827, guid: 3019186fa2e912b4dae1378d08187195,
         type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4044373087206465919, guid: 3019186fa2e912b4dae1378d08187195,
+    - target: {fileID: 789452834986877828, guid: 3019186fa2e912b4dae1378d08187195,
         type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1899278853
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4358158385517780489, guid: 3019186fa2e912b4dae1378d08187195,
         type: 3}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4358158385517780489, guid: 3019186fa2e912b4dae1378d08187195,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4358158385517780489, guid: 3019186fa2e912b4dae1378d08187195,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4358158385517780489, guid: 3019186fa2e912b4dae1378d08187195,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4358158385517780489, guid: 3019186fa2e912b4dae1378d08187195,
         type: 3}
@@ -546,10 +531,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7064501327899771914, guid: 3019186fa2e912b4dae1378d08187195,
+    - target: {fileID: 8378294211924585381, guid: 3019186fa2e912b4dae1378d08187195,
         type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
+      propertyPath: _laser
+      value: 
+      objectReference: {fileID: 5751819327401567969, guid: b2ffeef1885e5b942a15ccf0effb37cb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3019186fa2e912b4dae1378d08187195, type: 3}

@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
     {
             //_canFIre = CurrentTIme player + the fireRate. Every time that the space key is pressed the canfire variable is set ot the new time that it can fire
             _canFire = Time.time + _fireRate;
-            Instantiate(_laser, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
+            Instantiate(_laser, transform.position + new Vector3(0, 1.05f, 0), Quaternion.identity);
     }
 
     void PlayerMovement()
