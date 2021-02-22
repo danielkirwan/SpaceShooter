@@ -479,12 +479,12 @@ PrefabInstance:
     - target: {fileID: 4358158385517780489, guid: 3019186fa2e912b4dae1378d08187195,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.42
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4358158385517780489, guid: 3019186fa2e912b4dae1378d08187195,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.88
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4358158385517780489, guid: 3019186fa2e912b4dae1378d08187195,
         type: 3}
@@ -537,5 +537,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5751819327401567969, guid: b2ffeef1885e5b942a15ccf0effb37cb,
         type: 3}
+    - target: {fileID: 8378294211924585381, guid: 3019186fa2e912b4dae1378d08187195,
+        type: 3}
+      propertyPath: _tripleShot
+      value: 
+      objectReference: {fileID: 1054501925884741416, guid: 42779258f2fa4b143a38b28998998f20,
+        type: 3}
+    - target: {fileID: 8378294211924585381, guid: 3019186fa2e912b4dae1378d08187195,
+        type: 3}
+      propertyPath: _IsTripleShotActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3019186fa2e912b4dae1378d08187195, type: 3}

@@ -5,14 +5,21 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private float _speed = 3.5f;
+    [Header("Lasers")]
     [SerializeField]
     private GameObject _laser;
+    [SerializeField]
+    private GameObject _tripleShot;
+
     [SerializeField]
     private float _fireRate = 0.3f;
     private float _canFire = -1f;
     [SerializeField]
     private int _lives = 3;
     SpawnManager spawnManager;
+
+    [SerializeField]
+    bool _IsTripleShotActive = false;
     
     // Start is called before the first frame update
     void Start()
@@ -50,7 +57,15 @@ public class Player : MonoBehaviour
     {
             //_canFIre = CurrentTIme player + the fireRate. Every time that the space key is pressed the canfire variable is set ot the new time that it can fire
             _canFire = Time.time + _fireRate;
+        if (!_IsTripleShotActive)
+        {
             Instantiate(_laser, transform.position + new Vector3(0, 1.05f, 0), Quaternion.identity);
+        }else if (_IsTripleShotActive)
+        {
+            Instantiate(_tripleShot, transform.position + new Vector3(0, 0.1f, 0), Quaternion.identity);
+        }
+
+            
     }
 
     void PlayerMovement()
@@ -71,5 +86,7 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(11.3f, transform.position.y, transform.position.z);
         }
     }
+
+
 
 }
