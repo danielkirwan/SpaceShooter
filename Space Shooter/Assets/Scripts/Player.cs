@@ -53,6 +53,22 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void ActivateTripleShot()
+    {
+        _IsTripleShotActive = true;
+        Debug.Log("Activating triple shot");
+        StartCoroutine(DeactivateTripleShot());
+    }
+
+    private IEnumerator DeactivateTripleShot()
+    {
+        yield return new WaitForSeconds(5);
+        _IsTripleShotActive = false;
+        Debug.Log("Deactivating triple shot");
+
+    }
+
+
     void Shoot()
     {
             //_canFIre = CurrentTIme player + the fireRate. Every time that the space key is pressed the canfire variable is set ot the new time that it can fire
