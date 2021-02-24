@@ -32,12 +32,30 @@ public class Player : MonoBehaviour
     bool _IsSpeedBoostActive = false;
     [SerializeField]
     private bool _IsShieldActive = false;
-    
+
+    [Header("Score")]
+    [SerializeField]
+    private int _score;
+
+
+    private UIManager uIManager;
     // Start is called before the first frame update
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
         spawnManager = GameObject.FindGameObjectWithTag("SM").GetComponent<SpawnManager>();
+        uIManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+
+        if(spawnManager == null)
+        {
+            Debug.Log("Spawn manager is null");
+        }
+        if(uIManager == null)
+        {
+            Debug.Log("Ui manager is null");
+        }
+
+
     }
 
     // Update is called once per frame
@@ -50,6 +68,12 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void UpdateScore(int points)
+    {
+        _score += points;
+        uIManager.UpdateScoreText(_score);
+    }
+
     public void Damage()
     {
         if (_IsShieldActive)
@@ -59,6 +83,7 @@ public class Player : MonoBehaviour
         }
 
         _lives--;
+        uIManager.UpdateLives(_lives);
 
         if (_lives < 1)
         {
