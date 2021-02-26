@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     private GameObject _tripleShot;
     [SerializeField]
     private GameObject _shield;
+    [SerializeField]
+    private GameObject _thruster;
 
     [Header("FireRates")]
     [SerializeField]
@@ -156,6 +158,26 @@ public class Player : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
+        //Debug.Log("Horizontal: " + horizontalInput);
+        //Debug.Log("Vertical: " + verticalInput);
+
+        if (horizontalInput == 0)
+        {
+            _thruster.SetActive(false);
+        }
+        if (verticalInput == 0)
+        {
+            _thruster.SetActive(false);
+        }
+        if(horizontalInput <0 || horizontalInput > 0)
+        {
+            _thruster.SetActive(true);
+        }
+
+        if(verticalInput <0 || verticalInput > 0)
+        {
+            _thruster.SetActive(true);
+        }
 
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
         transform.Translate(direction * _speed * Time.deltaTime);
