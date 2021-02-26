@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour
             }
             anim.SetTrigger("EnemyDeath");
             _collider.enabled = !_collider.enabled;
+            Player.sfx[2].Play();
             Destroy(this.gameObject,1.5f);
         }
 
@@ -60,6 +61,7 @@ public class Enemy : MonoBehaviour
             }
             anim.SetTrigger("EnemyDeath");
             _collider.enabled = !_collider.enabled;
+            Player.sfx[2].Play();
             Destroy(this.gameObject, 1.5f);
         }
     }

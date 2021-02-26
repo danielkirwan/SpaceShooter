@@ -29,19 +29,23 @@ public class PowerUp : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             Player player = collision.transform.GetComponent<Player>();
+            //Player.sfx[3].Play();
             if(player != null)
             {
                 switch (powerUpID)
                 {
                 case 0 : 
                     player.ActivateTripleShot();
-                    break;
+                        Player.sfx[6].Play();
+                        break;
                 case 1:
                     player.ActivateSpeedIncrease();
-                    break;
+                        Player.sfx[5].Play();
+                        break;
                 case 2:
                         player.ActivateShield();
-                    break;
+                        Player.sfx[4].Play();
+                        break;
                 }
                 
             }

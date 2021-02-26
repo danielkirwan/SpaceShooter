@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - SM
   - Shield
+  - GameData
   layers:
   - Default
   - TransparentFX
