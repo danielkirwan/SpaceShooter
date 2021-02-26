@@ -21,14 +21,21 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnEnemy(5));
-        StartCoroutine(SpawnPowerUp());
+        //StartCoroutine(SpawnEnemy(5));
+        //StartCoroutine(SpawnPowerUp());
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    //Calls once the asteroid has been destroyed
+    public void StartSpawning()
+    {
+        StartCoroutine(SpawnEnemy(5));
+        StartCoroutine(SpawnPowerUp());
     }
 
     public void OnPlayerDeath()
@@ -38,6 +45,7 @@ public class SpawnManager : MonoBehaviour
 
     private IEnumerator SpawnEnemy(float time)
     {
+        yield return new WaitForSeconds(3.0f);
 
         while (!_stopSpawning)
         {
@@ -50,6 +58,8 @@ public class SpawnManager : MonoBehaviour
 
     private IEnumerator SpawnPowerUp()
     {
+        yield return new WaitForSeconds(5.0f);
+
         while (!_stopSpawning)
         {
             int randNum = Random.Range(0, 3);
