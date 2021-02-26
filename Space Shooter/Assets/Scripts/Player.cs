@@ -14,8 +14,13 @@ public class Player : MonoBehaviour
     private GameObject _tripleShot;
     [SerializeField]
     private GameObject _shield;
+    [Header("Thruster")]
     [SerializeField]
     private GameObject _thruster;
+    [SerializeField]
+    private GameObject _rightThruster;
+    [SerializeField]
+    private GameObject _leftThruster;
 
     [Header("FireRates")]
     [SerializeField]
@@ -85,6 +90,13 @@ public class Player : MonoBehaviour
         }
 
         _lives--;
+        if(_lives == 2)
+        {
+            _rightThruster.SetActive(true);
+        }else if(_lives == 1)
+        {
+            _leftThruster.SetActive(true);
+        }
         uIManager.UpdateLives(_lives);
 
         if (_lives < 1)
