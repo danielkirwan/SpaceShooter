@@ -44,6 +44,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _score;
 
+    [SerializeField]
+    private GameObject _playerExplosion;
+
 
     public static AudioSource[] sfx;
 
@@ -107,7 +110,9 @@ public class Player : MonoBehaviour
             if(spawnManager != null)
             {
                 spawnManager.OnPlayerDeath();
-                Destroy(this.gameObject);
+                Instantiate(_playerExplosion, transform.position, Quaternion.identity);
+                _speed = 0f;
+                Destroy(this.gameObject, 1.5f);
             }
 
         }
@@ -210,6 +215,14 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "LaserEnemy")
+        {
+            Damage();
+            Destroy(collision.gameObject);
+        }
+    }
 
 
 }

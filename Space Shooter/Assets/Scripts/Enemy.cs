@@ -6,10 +6,15 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 4f;
+    [SerializeField]
+    private GameObject _laser;
+    [SerializeField]
+    private GameObject _enemyLaser;
 
     private Player player;
 
     private Animator anim;
+    private bool _isAlive = true;
 
     [SerializeField]
     private Collider2D _collider;
@@ -24,6 +29,7 @@ public class Enemy : MonoBehaviour
             //float randomNumber = Random.Range(-9f, 10f);
             transform.position = new Vector3(Random.Range(-9f, 10f), 7f, transform.position.z);
         }
+        
     }
 
     private void Start()
@@ -33,6 +39,19 @@ public class Enemy : MonoBehaviour
         if(anim == null)
         {
             Debug.Log("Animator is null");
+        }
+        StartCoroutine(FireLaser());
+    }
+
+    private IEnumerator FireLaser()
+    {
+        while (_isAlive)
+        {
+            float randNum = Random.Range(1, 5);
+            Debug.Log("Random number: " + randNum);
+            yield return new WaitForSeconds(randNum);
+            Instantiate(_enemyLaser, transform.position + new Vector3(0, -1.05f, 0), Quaternion.identity);
+            Debug.Log("Enemy firing laser");
         }
     }
 
@@ -48,6 +67,7 @@ public class Enemy : MonoBehaviour
             anim.SetTrigger("EnemyDeath");
             _collider.enabled = !_collider.enabled;
             Player.sfx[2].Play();
+            _isAlive = false;
             Destroy(this.gameObject,1.5f);
         }
 
@@ -62,6 +82,7 @@ public class Enemy : MonoBehaviour
             anim.SetTrigger("EnemyDeath");
             _collider.enabled = !_collider.enabled;
             Player.sfx[2].Play();
+            _isAlive = false;
             Destroy(this.gameObject, 1.5f);
         }
     }

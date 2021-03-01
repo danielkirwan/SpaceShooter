@@ -1610,6 +1610,18 @@ PrefabInstance:
       objectReference: {fileID: 99198002}
     - target: {fileID: 8378294211924585381, guid: 3019186fa2e912b4dae1378d08187195,
         type: 3}
+      propertyPath: _playerExplosion
+      value: 
+      objectReference: {fileID: 6172704535603744621, guid: 0c439c1fd626c0441a330cb30a89068b,
+        type: 3}
+    - target: {fileID: 8378294211924585381, guid: 3019186fa2e912b4dae1378d08187195,
+        type: 3}
+      propertyPath: _enemyLaserPrefab
+      value: 
+      objectReference: {fileID: 3855372968958939110, guid: 90753537469970342b04d6fd0b8c4ca3,
+        type: 3}
+    - target: {fileID: 8378294211924585381, guid: 3019186fa2e912b4dae1378d08187195,
+        type: 3}
       propertyPath: _IsTripleShotActive
       value: 0
       objectReference: {fileID: 0}

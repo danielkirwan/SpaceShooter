@@ -16,4 +16,12 @@ public class GameData : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         singleton = this;
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
 }
